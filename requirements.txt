@@ -1,1 +1,20 @@
+streamlit
+
+chromadb
+langchain
+langchain-community
+langchain-chroma
+langchain-huggingface
+langchain-experimental
+
+sentence-transformers
+
+transformers
+torch
+accelerate
+
+pypdf
+python-docx
+
+python-dotenv
 
