@@ -1,26 +1,76 @@
 # config.py
 
-# Embedding model
+# ============================================================
+# RAG CONFIGURATION
+# ============================================================
+
+# ------------------------------------------------------------
+# Embedding Model
+# ------------------------------------------------------------
+# Converts text into vector embeddings.
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
-# Reranker
+
+# ------------------------------------------------------------
+# Reranker Model
+# ------------------------------------------------------------
+# Used after ChromaDB retrieval to rank documents by relevance.
 RERANKER_MODEL = "BAAI/bge-reranker-base"
 
-# Local Hugging Face LLM
+
+# ------------------------------------------------------------
+# LLM Model
+# ------------------------------------------------------------
+# Used to generate the final answer.
 LLM_MODEL = "google/flan-t5-base"
 
-# ChromaDB location
+
+# ------------------------------------------------------------
+# ChromaDB Configuration
+# ------------------------------------------------------------
+
+# Folder where ChromaDB will store the vector database.
 CHROMA_PATH = "./chroma_db"
 
-# Collection name
+# Name of the ChromaDB collection.
 COLLECTION_NAME = "rag_documents"
 
-# Number of documents retrieved from ChromaDB
+
+# ------------------------------------------------------------
+# Retrieval Configuration
+# ------------------------------------------------------------
+
+# Number of chunks initially retrieved from ChromaDB.
+#
+# Example:
+# User question
+#      ↓
+# ChromaDB
+#      ↓
+# Top 10 chunks
+#
 TOP_K = 10
 
-# Number of documents sent to the LLM after reranking
+
+# ------------------------------------------------------------
+# Reranking Configuration
+# ------------------------------------------------------------
+
+# Number of chunks kept after reranking.
+#
+# Example:
+# Top 10 retrieved chunks
+#          ↓
+#       Reranker
+#          ↓
+#       Top 3 chunks
+#
 TOP_N = 3
 
-# Documents directory
-DOCUMENTS_PATH = "./data/documents"
 
+# ------------------------------------------------------------
+# Documents Configuration
+# ------------------------------------------------------------
+
+# Folder containing PDF/TXT/DOCX files.
+DOCUMENTS_PATH = "./data/documents"
